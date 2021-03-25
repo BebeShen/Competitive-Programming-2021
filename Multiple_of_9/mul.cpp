@@ -21,27 +21,24 @@ int main(){
                 _9++;break;
         }
     }
-    int _6remain = 0, _3remain = 0;
-    if(_6%3!=0){
-        _6remain += (_6%3);
-        _6 = (_6/3)*3;
+    int _6remain = _6%3, _3reserved = 0;
+    _6 = (_6/3)*3;
+    if(_6remain + _3>=3){
+        _6 += _6remain;
+        _3reserved = 3-_6remain;
+        _3 = _3 - (3-_6remain);
     }
-    if(_3%3!=0){
-        _3remain += (_3%3);
-        _3 = (_3/3)*3;
-    }
-    bool _63 = false;
-    // 6 6 3 3 0 -> 6 6 3
-    if((_6remain + _3remain)%3==0)_63 = true;
+    _3 = (_3/3)*3;
     bool allzero = false;
-    
-    if(!_3&!_6&!_9&!_63)allzero = true;
+    if(!_3&!_6&!_9)allzero = true;
     sort(num.begin(),num.end());
     reverse(num.begin(),num.end());
+    // cout<<_9<<_6<<_6remain<<_3reserved<<_3<<_0<<endl;
     if(allzero)cout<<"None";
     else{
         for(int i=0;i<_9;++i)cout<<9<<" ";
         for(int i=0;i<_6;++i)cout<<6<<" ";
+        for(int i=0;i<_3reserved;++i)cout<<3<<" ";
         for(int i=0;i<_3;++i)cout<<3<<" ";
         for(int i=0;i<_0;++i)cout<<0<<" ";
     }
