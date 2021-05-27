@@ -20,9 +20,6 @@ int Num[10][5] = {
 	{1,4,1,2,1}/*9*/ 
 };
 void draw(int ch,int s,int line){
-    int row,col;
-    col = s+2;
-    row = 2*s+3;
     switch (Num[ch][line])
     {
         case 0:
